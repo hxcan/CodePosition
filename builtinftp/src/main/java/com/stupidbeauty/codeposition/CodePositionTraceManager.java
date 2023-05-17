@@ -1,5 +1,10 @@
 package com.stupidbeauty.codeposition;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Random;
+// import com.stupidbeauty.carddesignclient.ChopPiece;
 import java.net.BindException;
 import android.app.Application;
 import android.content.Context;
@@ -32,6 +37,40 @@ public class CodePositionTraceManager
   private int port;
   private boolean allowActiveMode=true; //!< 是否允许主动模式。
   private int lineNumber=0; //!< 根目录。
+  private ArrayList<CodePositionTraceListener> traceListeners=new ArrayList<>(); //!< Trace listeners.
+	private static CodePositionTraceManager mInstance = null; //!< The shared instance.
+  
+  /**
+  * Get or crate the shared instance.
+  */
+	public static CodePositionTraceManager sharedInstance() 
+	{
+		if (mInstance == null)  // The instance does not exist
+		{
+			mInstance = new CodePositionTraceManager(); // Create the instance.
+		} // if (mInstance == null)  // The instance does not exist
+		
+		return mInstance;
+	} // public static HxLauncherApplication getInstance() 
+
+	/**
+  * Add trace
+  */
+  public void addTrace(CodePosition result)
+  {
+    for(CodePositionTraceListener curentListener: traceListeners) // Report one by one
+    {
+      curentListener.onNewPosition(result.toString()); // Report.
+    } // for(CodePositionTraceListener curentListener: traceListeners) // Report one by one
+  } // public void addTrace(CodePosition result)
+  
+  /**
+  * Add listener.
+  */
+  public void addTraceListener(CodePositionTraceListener selfthis)
+  {
+    traceListeners.add(selfthis); // add into the list.
+  } // public void addTraceListener(CodePositionTraceListener selfthis)
     
   public void setClassName(String eventListener)
   {

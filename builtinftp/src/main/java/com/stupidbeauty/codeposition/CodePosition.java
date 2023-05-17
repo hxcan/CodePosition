@@ -71,6 +71,11 @@ public class CodePosition
     result.setMethodName(methodName);
     result.setLineNumber(lineNumber);
     
+    CodePositionTraceManager codePositionTraceManager = CodePositionTraceManager.sharedInstance(); // Get he code position trace manager.
+    
+    codePositionTraceManager .addTrace(result); // Add trace
+
+    
     return result;
   } //public FtpServer(String host, int port, Context context, boolean allowActiveMode) 
 }
