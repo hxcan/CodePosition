@@ -1,18 +1,15 @@
 apply plugin: 'com.android.library'
 
-version="2022.3.20"
-
-android {
+android 
+{
   compileSdkVersion 30
 
-  resourcePrefix "stupidbeauty__"
-
-  defaultConfig {
+  defaultConfig 
+  {
     buildToolsVersion = "30.0.3"
     minSdkVersion 14
     targetSdkVersion 28
     versionCode 757
-    versionName version
   }
 
   buildTypes {
@@ -25,6 +22,6 @@ android {
 
 dependencies
 {
-  compile 'com.koushikdutta.async:androidasync:2.1.7'
+  implementation 'com.koushikdutta.async:androidasync:2.1.7'
   implementation 'commons-io:commons-io:2.6'
 }
