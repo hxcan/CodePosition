@@ -9,19 +9,20 @@ android
     buildToolsVersion = "30.0.3"
     minSdkVersion 14
     targetSdkVersion 28
-    versionCode 757
-  }
+//     versionCode 757
+  } // defaultConfig 
 
-  buildTypes {
-    release {
+  buildTypes 
+  {
+    release 
+    {
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-    }
-  }
+    } // release
+  } // buildTypes 
 }
 
 dependencies
 {
-  implementation 'com.koushikdutta.async:androidasync:2.1.7'
   implementation 'commons-io:commons-io:2.6'
-}
+} // dependencies

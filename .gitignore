@@ -2,3 +2,5 @@
 .idea/
 builtinftp/build/
 local.properties
+.exzignore
+builtinftp/.exzignore
